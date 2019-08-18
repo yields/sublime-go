@@ -1,0 +1,38 @@
+[
+  {
+    "caption": "Go: test",
+    "command": "go_test"
+  },
+  {
+    "caption": "Go: source",
+    "command": "go_source"
+  },
+  {
+    "caption": "Go: fmt",
+    "command": "go_fmt"
+  },
+  {
+    "caption": "Go: vet",
+    "command": "go_vet"
+  },
+  {
+    "caption": "Go: lint",
+    "command": "go_lint"
+  },
+  {
+    "caption": "Go: escape",
+    "command": "go_escape"
+  },
+  {
+    "caption": "Go: add tags",
+    "command": "go_add_tags"
+  },
+  {
+    "caption": "Go: set tags",
+    "command": "go_set_tags"
+  },
+  {
+    "caption": "Go: clear tags",
+    "command": "go_clear_tags"
+  }
+]
