@@ -7,9 +7,9 @@ main(){
 
   if test $tag; then
     echo "==> packaging"
-    echo scripts/package.sh
+    scripts/package.sh
     echo "==> releasing"
-    ghr $tag go.sublime-package --soft
+    ghr --soft $tag go.sublime-package
     echo "==> released $tag"
     return 0
   fi
