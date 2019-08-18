@@ -1,7 +1,7 @@
 {
   // Vet specific configuration.
   //
-  // Allows you to configure vet commandn line arguments.
+  // Allows you to configure vet command line arguments.
   "vet": {
   	"analyzers": []
   }

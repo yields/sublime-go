@@ -7,5 +7,5 @@ def debug(msg, *args):
 	  print("(go debug) " + msg.format(*args))
 
 def error(msg, *args):
-  print("(go errror) " + msg.format(*args))
+  print("(go error) " + msg.format(*args))
 
