@@ -1,5 +1,5 @@
 
-DEBUG = '*'
+DEBUG = '-'
 TRACE = False
 
 def debug(msg, *args):
