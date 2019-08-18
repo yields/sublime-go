@@ -1,3 +1,5 @@
+  ![go](https://user-images.githubusercontent.com/1661587/63225474-196abb80-c1d9-11e9-83dc-b61732fc89b8.gif)
+
   An opinionated plugin for Go.
 
 ## Features
