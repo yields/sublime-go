@@ -29,3 +29,8 @@
   - [`guru(1)`](https://golang.org/x/tools/cmd/guru)
 
   To install, download a [release](https://github.com/yields/sublime-go/releases) and add it to your sublime installed packages folder.
+
+  To install via package control:
+
+  1. add the repository: https://raw.githubusercontent.com/yields/sublime-go/master/package.json
+  2. search for `go` and install
