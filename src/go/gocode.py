@@ -117,7 +117,7 @@ def parse_args(buf):
     else:
       arg['type'] = parts[0]
 
-    # Not sure what this is from godoc(1), but clean it up.
+    # Not sure what this is from gocode(1), but clean it up.
     if arg['type'].startswith('!'):
       arg['type'] = arg['type'].split('!').pop()
 
