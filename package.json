@@ -1,0 +1,23 @@
+{
+  "schema_version": "3.0.0",
+  "packages": [{
+    "name": "go",
+    "author": "yields",
+    "readme": "https://raw.githubusercontent.com/yields/sublime-go/master/Readme.md",
+    "description": "An opinionated plugin for Go",
+    "homepage": "https://github.com/yields/sublime-go",
+    "issues": "https://github.com/yields/sublime-go/issues",
+    "labels": ["ide", "golang", "go", "auto-complete", "test", "lint"],
+    "releases": [
+        {
+        "version": "0.0.0",
+        "url": "https://github.com/yields/sublime-go/releases/download/v0.0.0/go.sublime-package",
+        "date": "2019-08-18 17:00:00",
+        "sublime_text": ">=3207",
+        "platforms": ["osx"]
+      }
+    ]
+  }],
+  "dependencies": [],
+  "includes": []
+}
