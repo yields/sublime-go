@@ -169,11 +169,3 @@ class TagNameInput(sublime_plugin.TextInputHandler):
     return "json"
   def validate(self, text):
     return True
-
-
-class ViewLock():
-  def __enter__(self):
-    print("enter")
-
-  def __exit__(self, *args):
-    print("exit {}", args)

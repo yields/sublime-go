@@ -21,7 +21,6 @@ def update(key, view, errors):
   set.update(all)
   state[id(key, view.id())] = set
 
-
 def remove(key, view):
   """
   Remove removes all errors from view of key.

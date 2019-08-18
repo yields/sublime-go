@@ -109,11 +109,13 @@ def parse_args(buf):
     buf = buf[len(v):]
 
     parts = v.split(' ')
+    parts = [v.strip() for v in parts]
+
     if len(parts) == 2:
-      arg['name'] = parts[0].strip()
-      arg['type'] = parts[1].strip()
+      arg['name'] = parts[0]
+      arg['type'] = parts[1]
     else:
-      arg['type'] = parts[0].strip()
+      arg['type'] = parts[0]
 
     # Not sure what this is from godoc(1), but clean it up.
     if arg['type'].startswith('!'):

@@ -26,7 +26,6 @@ class Listener(sublime_plugin.ViewEventListener):
     if buffer.is_go(self.view):
       return gocode.complete(self.view, points[0])
 
-
   @staticmethod
   def applies_to_primary_view_only():
     return True

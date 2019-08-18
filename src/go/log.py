@@ -8,4 +8,3 @@ def debug(msg, *args):
 
 def error(msg, *args):
   print("(go error) " + msg.format(*args))
-
