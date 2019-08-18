@@ -1,10 +1,10 @@
 
-import go.decorators as decorators
-import go.buffer as buffer
-import go.errors as errors
-import go.lint as lint
-import go.exec as exec
-import os.path as path
+from os import path
+from . import decorators
+from . import buffer
+from . import errors
+from . import lint
+from . import exec
 
 @decorators.trace
 def run(view, edit):

@@ -1,7 +1,7 @@
 
-import go.log as log
 import sublime
 import time
+from . import log
 
 def trace(func):
   def tracer(*args, **kwargs):

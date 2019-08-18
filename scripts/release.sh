@@ -9,7 +9,7 @@ main(){
     echo "==> packaging"
     scripts/package.sh
     echo "==> releasing"
-    ghr --soft $tag go.sublime-package
+    ghr --soft $tag Golang.sublime-package
     echo "==> released $tag"
     return 0
   fi

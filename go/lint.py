@@ -1,9 +1,9 @@
 
-import go.decorators as decorators
-import go.buffer as buffer
-import go.errors as errors
-import go.exec as exec
-import go.log as log
+from . import decorators
+from . import buffer
+from . import errors
+from . import exec
+from . import log
 import os.path as path
 import string
 import sublime

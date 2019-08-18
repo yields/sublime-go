@@ -1,6 +1,6 @@
 
-import go.buffer as buffer
-import sublime
+from sublime import PhantomSet
+from . import buffer
 
 state = {}
 
@@ -11,7 +11,7 @@ def update(key, view, errors):
   The method shos a given list of errors on the given
   view, keyed by `key`, each tool uses a different key.
   """
-  set = sublime.PhantomSet(view, key)
+  set = PhantomSet(view, key)
   all = []
 
   for err in errors:

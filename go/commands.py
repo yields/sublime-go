@@ -1,16 +1,17 @@
 
-import go.spinner as spinner
-import go.buffer as buffer
-import go.escape as escape
-import go.test as test
-import go.tags as tags
-import go.guru as guru
-import go.lint as lint
-import go.log as log
-import go.fmt as fmt
-import go.vet as vet
-import sublime_plugin
 import sublime
+import sublime_plugin
+
+from . import spinner
+from . import buffer
+from . import escape
+from . import test
+from . import tags
+from . import guru
+from . import lint
+from . import log
+from . import fmt
+from . import vet
 
 class GoFmtCommand(sublime_plugin.TextCommand):
   def run(self, edit):

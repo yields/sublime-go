@@ -1,8 +1,8 @@
 
-import go.decorators as decorators
-import go.buffer as buffer
-import go.exec as exec
-import go.log as log
+from . import decorators
+from . import buffer
+from . import exec
+from . import log
 import sublime
 import json
 

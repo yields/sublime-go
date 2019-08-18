@@ -1,11 +1,11 @@
 
-import go.decorators as decorators
-import go.buffer as buffer
-import go.errors as errors
-import go.conf as conf
-import go.lint as lint
-import go.exec as exec
-import go.log as log
+from . import decorators
+from . import buffer
+from . import errors
+from . import conf
+from . import lint
+from . import exec
+from . import log
 import os.path as path
 import sublime
 import sys
