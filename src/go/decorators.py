@@ -48,5 +48,11 @@ class Promise():
 
   def then(self, cb):
     sublime.set_timeout_async(lambda:
-      cb(self.func(*self.args, **self.kwargs)),
+      self.call(cb, *self.args, **self.kwargs),
       0)
+
+  def call(self, cb, *args, **kwargs):
+    try:
+      v = self.func(*args, **kwargs)
+    finally:
+      cb(v)
