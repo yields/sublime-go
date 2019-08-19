@@ -9,6 +9,7 @@
     "readme": "https://raw.githubusercontent.com/yields/sublime-go/master/Readme.md",
     "labels": ["golang", "go", "auto-complete", "lint", "vet", "test", "definition"],
     "releases": [{
+      "version": "0.0.2",
       "sublime_text": ">=3207",
       "platforms": ["osx"],
       "url": "https://codeload.github.com/yields/sublime-go/archive/v0.0.2.zip",
