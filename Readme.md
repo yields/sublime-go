@@ -20,7 +20,15 @@
 
 ## Installation
 
-  Install `Golang` via package-control.
+  1. Add the repository to package control:
+
+  ```text
+  https://raw.githubusercontent.com/yields/sublime-go/master/repo.json
+  ```
+
+  2. Search and install `Golang` via package-control.
+
+## Dependencies
 
   Note that you'll have to install the following dependencies
   for the plugin to work:
@@ -30,5 +38,3 @@
   - [`golint(1)`](https://github.com/golang/lint)
   - [`gocode(1)`](https://github.com/visualfc/gocode)
   - [`guru(1)`](https://golang.org/x/tools/cmd/guru)
-
-  If you want to skip package-control, simply download the latest [package](https://github.com/yields/sublime-go/releases) and put it in sublime's installed packages path.
