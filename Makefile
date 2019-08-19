@@ -9,7 +9,7 @@ install: clean
 
 watch:
 	@echo
-	@ls -1 go/*.py conf/* | entr -pcr make install
+	@ls -1 scripts/dev.py go/*.py conf/* | entr -pcr make install
 	@echo
 
 test:
