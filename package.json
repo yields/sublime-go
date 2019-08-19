@@ -1,7 +1,8 @@
 {
   "name": "Golang",
   "description": "An opinionated plugin for Go",
-  "details": "https://github.com/yields/sublime-go",
+  "homepage": "https://github.com/yields/sublime-go",
+  "issues": "https://github.com/yields/sublime-go/issues",
   "authors": ["yields"],
   "labels": ["go", "golang", "test", "lint", "auto-complete", "format"],
   "releases": [{

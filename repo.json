@@ -7,7 +7,7 @@
     "issues": "https://github.com/yields/sublime-go/issues",
     "author": ["yields"],
     "readme": "https://raw.githubusercontent.com/yields/sublime-go/master/Readme.md",
-    "labels": ["golang", "go", "auto-complete", "lint", "vet", "test", "definition"],
+    "labels": ["go", "golang", "test", "lint", "auto-complete", "format"],
     "releases": [{
       "version": "0.0.2",
       "sublime_text": ">=3207",
