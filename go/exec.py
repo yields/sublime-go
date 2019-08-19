@@ -1,9 +1,10 @@
 
-import go.decorators as decorators
-import go.buffer as buffer
-import go.log as log
-import subprocess
-import os
+from subprocess import Popen
+from subprocess import PIPE
+from os import environ
+from . import decorators
+from . import buffer
+from . import log
 
 class Command():
   """
@@ -34,11 +35,11 @@ class Command():
     args = [self.cmd] + self.args
     env = goenv(self.cwd)
 
-    proc = subprocess.Popen(
+    proc = Popen(
       args,
-      stdin=subprocess.PIPE,
-      stdout=subprocess.PIPE,
-      stderr=subprocess.PIPE,
+      stdin=PIPE,
+      stdout=PIPE,
+      stderr=PIPE,
       cwd=self.cwd,
       env=env,
     )
@@ -68,7 +69,7 @@ def goenv(cwd):
   goenv returns the go environment based on cwd.
   """
   log.debug("exec: getting go env")
-  proc = subprocess.Popen(["go", "env"], stdout=subprocess.PIPE, cwd=cwd)
+  proc = Popen(["go", "env"], stdout=PIPE, cwd=cwd)
   out, _ = proc.communicate(timeout=2)
   out = out.decode('UTF-8')
   env = {}
@@ -78,5 +79,5 @@ def goenv(cwd):
     if len(parts) == 2 and parts[1] != '""':
       env[parts[0]] = parts[1][1:-1]
 
-  env.update(os.environ)
+  env.update(environ)
   return env

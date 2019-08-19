@@ -1,7 +1,7 @@
 
-import go.buffer as buffer
-import go.exec as exec
-import go.log as log
+from . import buffer
+from . import exec
+from . import log
 import sublime
 
 def add(view, edit, tag):

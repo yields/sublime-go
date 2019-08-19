@@ -1,9 +1,9 @@
 
-import go.errors as errors
-import go.buffer as buffer
-import go.gocode as gocode
-import go.guru as guru
-import go.log as log
+from . import errors
+from . import buffer
+from . import gocode
+from . import guru
+from . import log
 import sublime_plugin
 import sublime
 import time

@@ -20,7 +20,10 @@
 
 ## Installation
 
-  The plugin is only supported on OSX, it depends on several go tools.
+  Install `Golang` via package-control.
+
+  Note that you'll have to install the following dependencies
+  for the plugin to work:
 
   - [`>=go1.12`](https://golang.org/dl/)
   - [`goimports(1)`](https://golang.org/x/tools/cmd/goimports)
@@ -28,9 +31,4 @@
   - [`gocode(1)`](https://github.com/visualfc/gocode)
   - [`guru(1)`](https://golang.org/x/tools/cmd/guru)
 
-  To install, download a [release](https://github.com/yields/sublime-go/releases) and add it to your sublime installed packages folder.
-
-  To install via package control:
-
-  1. add the repository: https://raw.githubusercontent.com/yields/sublime-go/master/package.json
-  2. search for `go` and install
+  If you want to skip package-control, simply download the latest [package](https://github.com/yields/sublime-go/releases) and put it in sublime's installed packages path.

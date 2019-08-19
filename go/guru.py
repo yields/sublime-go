@@ -1,7 +1,7 @@
 
-import go.decorators as decorators
-import go.exec as exec
-import go.log as log
+from . import decorators
+from . import exec
+from . import log
 import os.path as path
 import sublime
 import time

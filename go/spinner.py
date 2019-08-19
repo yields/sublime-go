@@ -3,7 +3,7 @@ from sublime import set_timeout
 from sublime import windows
 import sublime
 from threading import Lock
-from go import log
+from . import log
 
 def plugin_unloaded():
   log.debug('spinner: cleanup')

@@ -1,10 +1,9 @@
 
-import go.decorators as decorators
-import go.buffer as buffer
-import go.errors as errors
-import go.lint as lint
-import go.exec as exec
-import sublime
+from . import decorators
+from . import buffer
+from . import errors
+from . import lint
+from . import exec
 
 @decorators.thread
 @decorators.trace

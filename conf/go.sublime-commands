@@ -20,7 +20,7 @@
     "command": "go_lint"
   },
   {
-    "caption": "Go: escape",
+    "caption": "Go: escape analysis",
     "command": "go_escape"
   },
   {
