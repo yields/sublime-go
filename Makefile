@@ -15,9 +15,6 @@ watch:
 test:
 	@pytest ./tests
 
-release:
-	@scripts/release.sh
-
 clean:
 	@rm -f ${dst}
 	@rm -f Golang.sublime-package
