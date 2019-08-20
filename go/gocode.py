@@ -59,6 +59,7 @@ def parse(item):
 def parse_func(item):
   name = item.get('name')
   args, buf = parse_args(item['type'])
+  rets = parse_returns(buf)
   preview_args = []
   named_args = []
   snip = ''
@@ -81,11 +82,11 @@ def parse_func(item):
   return {
     'name': name,
     'args': ', '.join(preview_args),
-    'rets': '\t-> ()',
+    'rets': '\t-> ({})'.format(', '.join(rets)),
     'snip': snip,
   }
 
-def parse_args(buf):
+def parse_args(buf, depth=0):
   """
   Parse args parses all function arguments.
   """
@@ -101,7 +102,7 @@ def parse_args(buf):
       continue
 
     if peek(buf, 'func('):
-      args, buf = parse_args(buf)
+      args, buf = parse_args(buf, depth=depth+1)
       arg['type'] = 'func'
       arg['args'] = args
       continue
@@ -131,12 +132,21 @@ def parse_args(buf):
     if arg['type'].startswith('!'):
       arg['type'] = arg['type'].split('!').pop()
 
-
-  if len(buf) > 0:
+  if depth > 0 and len(buf) > 0:
     n = buf.find(')')
     buf = buf[n:]
 
+  if depth == 0:
+    buf = buf.strip()
+
   return all, buf
+
+def parse_returns(buf):
+  if len(buf) > 0:
+    if buf[0] == '(':
+      buf = buf[1:-1]
+    return [v.strip() for v in buf.split(',')]
+  return []
 
 def peek(buf, substr):
   return buf.startswith(substr)

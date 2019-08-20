@@ -83,3 +83,27 @@ def test_parse_func_no_args():
     "ƒ・print() \t\t-> ()",
     'print()$0',
   ]
+
+def test_parse_func_returns():
+  completion = gocode.parse({
+    'package': '',
+    'class': 'func',
+    'name': 'sum',
+    'type': 'func(...int) int'
+  })
+  assert completion == [
+    "ƒ・sum(...int) \t\t-> (int)",
+    'sum(${1:...int})',
+  ]
+
+def test_parse_func_multi_returns():
+  completion = gocode.parse({
+    'package': '',
+    'class': 'func',
+    'name': 'sum',
+    'type': 'func(...int) (int, error)'
+  })
+  assert completion == [
+    "ƒ・sum(...int) \t\t-> (int, error)",
+    'sum(${1:...int})',
+  ]
