@@ -116,7 +116,7 @@ def parse_args(buf, depth=0):
     if arg == None:
       arg = {'name': '', 'type': ''}
 
-    (v,) = re.findall(r'^ *([!\.\w{}\[\] ]+)(?:[,)]|func\()', buf)
+    (v,) = re.findall(r'^ *([!\.\w{}\[\]\/ ]+)(?:[,)]|func\()', buf)
     buf = buf[len(v):]
 
     parts = v.split(' ')

@@ -107,3 +107,15 @@ def test_parse_func_multi_returns():
     "ƒ・sum(...int) \t\t-> (int, error)",
     'sum(${1:...int})',
   ]
+
+def test_parse_func_simple():
+  completion = gocode.parse({
+    'class': 'func',
+    'package': 'net/http',
+    'type': 'func(addr string, handler !net/http!http.Handler) error',
+    'name': 'ListenAndServe'
+  })
+  assert completion == [
+    'ƒ・ListenAndServe(addr string, handler http.Handler) \t\t-> (error)',
+    'ListenAndServe(${1:addr string}, ${2:handler http.Handler})',
+  ]
