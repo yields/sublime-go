@@ -61,6 +61,7 @@ def parse_func(item):
   args, buf = parse_args(item['type'])
   preview_args = []
   named_args = []
+  snip = ''
 
   for arg in args:
     prev = '{name} {type}'.format(**arg)
@@ -71,11 +72,17 @@ def parse_func(item):
     tmpl = '${{{}:{}}}'.format(i + 1, placeholder.strip())
     named_args.append(tmpl)
 
+  if len(named_args) > 0:
+    print("named_args", args)
+    snip = '{}({})'.format(name, ', '.join(named_args))
+  else:
+    snip = '{}()$0'.format(name)
+
   return {
     'name': name,
     'args': ', '.join(preview_args),
     'rets': '\t-> ()',
-    'snip': '{}({})'.format(name, ', '.join(named_args)),
+    'snip': snip,
   }
 
 def parse_args(buf):
@@ -83,7 +90,7 @@ def parse_args(buf):
   Parse args parses all function arguments.
   """
   buf = buf[len("func("):]
-  arg = {'name': '', 'type': ''}
+  arg = None
   all = []
 
   while len(buf) != 0:
@@ -100,10 +107,13 @@ def parse_args(buf):
       continue
 
     if buf[0] == ')':
-      all.append(arg)
+      if arg != None:
+        all.append(arg)
       buf = buf[1:]
-      arg = arg.copy()
       break
+
+    if arg == None:
+      arg = {'name': '', 'type': ''}
 
     (v,) = re.findall(r'^ *([!\.\w{}\[\] ]+)(?:[,)]|func\()', buf)
     buf = buf[len(v):]

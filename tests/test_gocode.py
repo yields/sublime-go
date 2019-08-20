@@ -72,3 +72,14 @@ def test_parse_func_args():
     'args': [{ 'type': 'int', 'name': '' }]
   }]
 
+def test_parse_func_no_args():
+  completion = gocode.parse({
+    'package': '',
+    'class': 'func',
+    'name': 'print',
+    'type': 'func()'
+  })
+  assert completion == [
+    "ƒ・print() \t\t-> ()",
+    'print()$0',
+  ]
