@@ -11,7 +11,7 @@
     "releases": [{
       "version": "0.0.2",
       "sublime_text": ">=3207",
-      "platforms": ["osx"],
+      "platforms": ["osx", "windows", "linux"],
       "url": "https://codeload.github.com/yields/sublime-go/zip/v0.0.2",
       "date": "2019-08-19 20:00:00"
     }]

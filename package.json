@@ -7,7 +7,7 @@
   "labels": ["go", "golang", "test", "lint", "auto-complete", "format"],
   "releases": [{
     "sublime_text": ">=3207",
-    "platforms": ["osx"],
+    "platforms": ["osx", "windows", "linux"],
     "tags": true
   }]
 }
