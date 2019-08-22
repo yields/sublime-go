@@ -117,7 +117,6 @@ def parse_args(buf, depth=0):
 
     (v,) = re.findall(r'^ *([!\.\w{}\[\]\/ ]+)(?:[,)]|func\()', buf)
     buf = buf[len(v):]
-    print(v)
 
     parts = v.split(' ')
     parts = [v.strip() for v in parts]
@@ -129,8 +128,7 @@ def parse_args(buf, depth=0):
       arg['type'] = parts[0]
 
     # Not sure what this is from gocode(1), but clean it up.
-    if '!' in arg['type']:
-      arg['type'] = cleanup(arg['type'])
+    arg['type'] = cleanup(arg['type'])
 
   if depth > 0 and len(buf) > 0:
     n = buf.find(')')
