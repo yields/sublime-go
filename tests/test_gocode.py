@@ -119,3 +119,15 @@ def test_parse_func_simple():
     'ƒ・ListenAndServe(addr string, handler http.Handler) \t\t-> (error)',
     'ListenAndServe(${1:addr string}, ${2:handler http.Handler})',
   ]
+
+def test_parse_funky_gocode():
+  completion = gocode.parse({
+    'name': 'NewClient',
+    'package': 'cloud.google.com/go/bigquery',
+    'type': 'func(ctx !context!context.Context, projectID string, opts ...!google.golang.org/api/option!option.ClientOption) (*!cloud.google.com/go/bigquery!bigquery.Client, error)',
+    'class': 'func'
+  })
+  assert completion == [
+    'ƒ・NewClient(ctx context.Context, projectID string, opts ...option.ClientOption) \t\t-> (*bigquery.Client, error)',
+    'NewClient(${1:ctx context.Context}, ${2:projectID string}, ${3:opts ...option.ClientOption})'
+  ]

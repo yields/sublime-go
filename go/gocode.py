@@ -74,7 +74,6 @@ def parse_func(item):
     named_args.append(tmpl)
 
   if len(named_args) > 0:
-    print("named_args", args)
     snip = '{}({})'.format(name, ', '.join(named_args))
   else:
     snip = '{}()$0'.format(name)
@@ -118,6 +117,7 @@ def parse_args(buf, depth=0):
 
     (v,) = re.findall(r'^ *([!\.\w{}\[\]\/ ]+)(?:[,)]|func\()', buf)
     buf = buf[len(v):]
+    print(v)
 
     parts = v.split(' ')
     parts = [v.strip() for v in parts]
@@ -129,8 +129,8 @@ def parse_args(buf, depth=0):
       arg['type'] = parts[0]
 
     # Not sure what this is from gocode(1), but clean it up.
-    if arg['type'].startswith('!'):
-      arg['type'] = arg['type'].split('!').pop()
+    if '!' in arg['type']:
+      arg['type'] = cleanup(arg['type'])
 
   if depth > 0 and len(buf) > 0:
     n = buf.find(')')
@@ -145,8 +145,14 @@ def parse_returns(buf):
   if len(buf) > 0:
     if buf[0] == '(':
       buf = buf[1:-1]
-    return [v.strip() for v in buf.split(',')]
+    return [cleanup(v.strip()) for v in buf.split(',')]
   return []
 
 def peek(buf, substr):
   return buf.startswith(substr)
+
+def cleanup(v):
+  if '!' in v:
+    parts = v.split('!')
+    return parts[0] + parts.pop()
+  return v
