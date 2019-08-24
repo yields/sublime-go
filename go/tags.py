@@ -4,30 +4,29 @@ from . import exec
 from . import log
 import sublime
 
+cases = {
+  'snakecase': 'snake_case',
+  'camelcase': 'camelCase',
+  'lispcase': 'lisp-case',
+  'pascalcase': 'PascalCase',
+  'keep': 'keep',
+}
+
 def add(view, edit, tag):
-  """
-  Add adds a tag name to view at point.
-  """
+  (key, case) = parse(tag)
   call(view, edit, [
     "--add-tags",
-    tag,
+    key,
+    '--transform',
+    case
   ])
 
 def clear(view, edit):
-  """
-  Clear clears all tags.
-  """
   call(view, edit, [
     "--clear-tags",
   ])
 
 def call(view, edit, args):
-  """
-  Call gomodifytags(1) with args.
-
-  The function will swap the current buffer
-  on success and log out an error on failure.
-  """
   off = view.sel()[0].begin()
   file = view.file_name()
   args += ["--offset", str(off)]
@@ -41,3 +40,11 @@ def call(view, edit, args):
     return
 
   log.error("gomodifytags(1) - {} {}", res.code, res.stderr)
+
+def parse(text):
+  if len(text) == 0:
+    return ('json', 'snakecase')
+  parts = text.split(' ')
+  if len(parts) == 1:
+    return (parts[0], 'snakecase')
+  return (parts[0], parts[1])

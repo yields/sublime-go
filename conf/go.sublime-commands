@@ -28,10 +28,6 @@
     "command": "go_add_tags"
   },
   {
-    "caption": "Go: set tags",
-    "command": "go_set_tags"
-  },
-  {
     "caption": "Go: clear tags",
     "command": "go_clear_tags"
   }
