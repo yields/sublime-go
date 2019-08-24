@@ -80,4 +80,11 @@ def goenv(cwd):
       env[parts[0]] = parts[1][1:-1]
 
   env.update(environ)
+
+  if 'GOPATH' in env and 'PATH' in env:
+    paths = env['PATH'].split(':')
+    if env['GOPATH'] not in paths:
+      paths.append(env['GOPATH'])
+      env['PATH'] = ':'.join(paths)
+
   return env
