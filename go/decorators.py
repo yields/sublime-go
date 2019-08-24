@@ -52,6 +52,7 @@ class Promise():
       0)
 
   def call(self, cb, *args, **kwargs):
+    v = None
     try:
       v = self.func(*args, **kwargs)
     finally:
