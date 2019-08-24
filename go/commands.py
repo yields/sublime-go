@@ -167,6 +167,12 @@ class GoClearTagsCommand(sublime_plugin.TextCommand):
 
 class TagNameInput(sublime_plugin.TextInputHandler):
   def placeholder(self):
-    return "json"
+    return "json snakecase"
+
+  def preview(self, text):
+    (key, case) = tags.parse(text)
+    return "{}:'{}'".format(key, tags.cases.get(case, case))
+
   def validate(self, text):
-    return True
+    (key, case) = tags.parse(text)
+    return key != "" and (case in tags.cases)

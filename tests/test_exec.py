@@ -1,5 +1,6 @@
 
 import go.exec as exec
+import os.path as path
 
 def test_goenv():
   orig = exec.environ
@@ -7,6 +8,6 @@ def test_goenv():
   v = exec.goenv('/')
   assert v.get('PATH') == ':'.join([
     '/usr/local/bin',
-    v.get('GOPATH'),
+    path.join(v.get('GOPATH'), 'bin'),
   ])
   exec.environ = orig

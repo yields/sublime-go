@@ -26,7 +26,7 @@ def in_struct(view):
   position and checks to see if we are
   inside a struct.
   """
-  scopes = ['source.go', 'variable.other.member.declaration.go']
+  scopes = ['source.go', 'meta.type.go']
   point = view.sel()[0].b
   return view.match_selector(point, " ".join(scopes))
 

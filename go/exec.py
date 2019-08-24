@@ -1,7 +1,7 @@
 
 from subprocess import Popen
 from subprocess import PIPE
-from os import environ
+from os import (environ, path)
 from . import decorators
 from . import buffer
 from . import log
@@ -84,7 +84,7 @@ def goenv(cwd):
   if 'GOPATH' in env and 'PATH' in env:
     paths = env['PATH'].split(':')
     if env['GOPATH'] not in paths:
-      paths.append(env['GOPATH'])
+      paths.append(path.join(env['GOPATH'], 'bin'))
       env['PATH'] = ':'.join(paths)
 
   return env
