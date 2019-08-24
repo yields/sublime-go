@@ -9,9 +9,6 @@ import json
 @decorators.thread
 @decorators.trace
 def run(view):
-  """
-  Run runs the tests and returns a new test Report.
-  """
   pkg = buffer.package(view)
   cmd = exec.Command("go", args=["test", "-json", "."], cwd=pkg)
   res = cmd.run()

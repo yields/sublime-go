@@ -1,28 +1,12 @@
 
-from sublime_plugin import reload_plugin
-from .go import listeners
-from .go import commands
+import sublime_plugin
+import Golang.go
 
-submodules = [
-  'buffer',
-  'commands',
-  'conf',
-  'decorators',
-  'errors',
-  'escape',
-  'exec',
-  'fmt',
-  'gocode',
-  'guru',
-  'lint',
-  'listeners',
-  'log',
-  'spinner',
-  'tags',
-  'test',
-  'vet',
-]
+submodules = [v for v in dir(Golang.go) if not v.startswith('__')]
 
 def plugin_loaded():
   for mod in submodules:
-    reload_plugin('Golang.go.' + mod)
+    sublime_plugin.reload_plugin('Golang.go.' + mod)
+  Golang.go.log.DEBUG = '*'
+  Golang.go.log.TRACE = True
+
