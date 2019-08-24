@@ -1,13 +1,13 @@
 
-from sublime import Region
-from os import path
+import os.path as path
+import sublime
 
 def replace(view, edit, text):
   """
   Replace the whole buffer in view.
   """
   pos = view.viewport_position()
-  region = Region(0, view.size())
+  region = sublime.Region(0, view.size())
   view.replace(edit, region, text)
   view.set_viewport_position(pos, False)
 
@@ -16,8 +16,8 @@ def text(view):
   """
   Text returns all text from the view.
   """
-  reg = Region(0, view.size())
-  return view.substr(reg).encode('utf-8')
+  reg = sublime.Region(0, view.size())
+  return view.substr(reg).encode('UTF-8')
 
 
 def in_struct(view):

@@ -1,4 +1,5 @@
 
 class Region():
-  def __init__(self, x, y):
-    pass
+  def __init__(self, begin, end):
+    self.begin = begin
+    self.end = end
