@@ -18,6 +18,7 @@
   - Struct tags
   - Test
   - Show lines that escape to heap
+  - Show uncovered lines
 
 ## Installation
 

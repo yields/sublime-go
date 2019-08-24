@@ -2,6 +2,7 @@
 import sublime
 import sublime_plugin
 
+from . import coverage
 from . import spinner
 from . import buffer
 from . import escape
@@ -126,6 +127,34 @@ class GoTestCommand(sublime_plugin.TextCommand):
 
   def is_enabled(self, event=None):
     return buffer.is_go(self.view)
+
+class GoCoverageCommand(sublime_plugin.TextCommand):
+  locked = False
+
+  def run(self, edit):
+    if not self.locked:
+      self.lock()
+      p = coverage.run(self.view)
+      p.then(lambda _: self.unlock())
+
+  def lock(self):
+    self.locked = True
+    spinner.add(self.view, 'coverage')
+
+  def unlock(self):
+    self.locked = False
+    spinner.remove(self.view, 'coverage')
+
+  def is_enabled(self, event=None):
+    return buffer.is_go(self.view)
+
+class GoRemoveCoverageCommand(sublime_plugin.TextCommand):
+  def run(self, edit):
+    coverage.remove(self.view)
+
+  def is_enabled(self, event=None):
+    regions = self.view.get_regions('go.coverage')
+    return len(regions) > 0
 
 class GoAddTagsCommand(sublime_plugin.TextCommand):
   def run(self, edit, **args):

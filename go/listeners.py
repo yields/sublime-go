@@ -1,4 +1,5 @@
 
+from . import coverage
 from . import errors
 from . import buffer
 from . import gocode
@@ -13,14 +14,19 @@ class Listener(sublime_plugin.ViewEventListener):
     self.view = view
 
   def on_pre_save(self):
-    self.view.run_command("go_fmt")
+    self.run('go_fmt')
 
   def on_post_save_async(self):
-    self.view.run_command("go_vet")
-    self.view.run_command("go_lint")
+    self.run('go_vet')
+    self.run('go_lint')
+
+  def run(self, command):
+    if self.view.is_dirty():
+      self.view.run_command(command)
 
   def on_modified_async(self):
     errors.remove_all()
+    coverage.remove(self.view)
 
   def on_query_completions(self, prefix, points):
     if buffer.is_go(self.view):

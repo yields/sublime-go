@@ -4,6 +4,14 @@
     "command": "go_test"
   },
   {
+    "caption": "Go: coverage",
+    "command": "go_coverage"
+  },
+  {
+    "caption": "Go: remove coverage",
+    "command": "go_remove_coverage"
+  },
+  {
     "caption": "Go: source",
     "command": "go_source"
   },
