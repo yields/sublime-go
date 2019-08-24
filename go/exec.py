@@ -64,13 +64,13 @@ class Result():
     self.stdout = stdout
 
 @decorators.memoized
-def goenv(cwd):
+def goenv(cwd, timeout=2):
   """
   goenv returns the go environment based on cwd.
   """
   log.debug("exec: getting go env")
   proc = Popen(["go", "env"], stdout=PIPE, cwd=cwd)
-  out, _ = proc.communicate(timeout=2)
+  out, _ = proc.communicate(timeout=timeout)
   out = out.decode('UTF-8')
   env = {}
 
