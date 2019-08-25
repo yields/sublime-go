@@ -107,7 +107,7 @@ def parse_args(buf, depth=0):
       continue
 
     if buf[0] == ')':
-      if arg != None:
+      if arg is not None:
         all.append(arg)
       buf = buf[1:]
       break

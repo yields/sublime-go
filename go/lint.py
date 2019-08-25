@@ -39,7 +39,7 @@ def parse(str, file, tool):
   errs = []
   for l in str.splitlines():
     err = Error.parse(l, file, tool)
-    if err != None:
+    if err is not None:
       errs.append(err)
   return errs
 
