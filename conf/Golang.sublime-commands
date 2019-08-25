@@ -1,5 +1,9 @@
 [
   {
+    "caption": "Go: settings",
+    "command": "go_settings"
+  },
+  {
     "caption": "Go: test",
     "command": "go_test"
   },

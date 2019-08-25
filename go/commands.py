@@ -14,6 +14,13 @@ from . import log
 from . import fmt
 from . import vet
 
+class GoSettingsCommand(sublime_plugin.TextCommand):
+  def run(self, edit):
+    sublime.run_command("edit_settings", {
+      'base_file': '${packages}/Golang/Golang.sublime-settings',
+      'default': '{\n  // Configure Golang plugin\n  $0\n}'
+    })
+
 class GoFmtCommand(sublime_plugin.TextCommand):
   def run(self, edit):
     fmt.run(self.view, edit)
