@@ -1,4 +1,11 @@
 
+v0.0.4 / 2019-08-25
+===================
+
+  * completion: fix gocode edge-cases
+  * config: rename to match other plugins
+  * commands: add coverage to show inline test coverage
+
 v0.0.3 / 2019-08-24
 ===================
 
