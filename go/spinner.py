@@ -64,7 +64,7 @@ class Spinner():
   def message(self):
     frame = self.frames[self.frame % len(self.frames)]
     cmd_text = ', '.join(self.cmds)
-    msg = "{} go ∙ {}\n".format(frame, cmd_text)
+    msg = "{} Go ∙ {}\n".format(frame, cmd_text)
     return msg
 
   def remove(self, cmd):

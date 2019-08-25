@@ -120,7 +120,7 @@ class GoTestCommand(sublime_plugin.TextCommand):
     self.set_report(report)
 
   def set_report(self, report):
-    msg = 'go ∙ ' + report.text()
+    msg = 'Go ∙ ' + report.text()
     key = 'go.test'
     self.view.set_status(key, msg)
     sublime.set_timeout(lambda: self.view.erase_status(key), 10e3)

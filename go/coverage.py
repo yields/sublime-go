@@ -43,7 +43,7 @@ def run(view):
         lines += 1
 
   log.debug('cover: add {} regions {} uncovered lines', len(regions), lines)
-  set_temporary_status(view, 'go ∙ {} uncovered lines'.format(lines))
+  set_temporary_status(view, 'Go ∙ {} uncovered lines'.format(lines))
   view.add_regions('go.coverage', regions, 'error', 'dot',
     sublime.HIDDEN
   )
