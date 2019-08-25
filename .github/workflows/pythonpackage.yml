@@ -30,6 +30,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest
 
+    - name: Install go tools
+      run: |
+        go get golang.org/x/tools/cmd/goimports
+        go get golang.org/x/lint/golint
+        go get github.com/visualfc/gocode
+        go get golang.org/x/tools/cmd/guru
+
     - name: Test with pytest
       run: |
         make test
