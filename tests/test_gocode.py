@@ -131,3 +131,15 @@ def test_parse_funky_gocode():
     'ƒ・NewClient(ctx context.Context, projectID string, opts ...option.ClientOption) \t\t-> (*bigquery.Client, error)',
     'NewClient(${1:ctx context.Context}, ${2:projectID string}, ${3:opts ...option.ClientOption})'
   ]
+
+def test_parse_ptr_args():
+  completion = gocode.parse({
+    'name': 'BeginTx',
+    'package': 'database/sql',
+    'type': 'func(ctx !context!context.Context, opts *!database/sql!sql.TxOptions) (*!database/sql!sql.Tx, error)',
+    'class': 'func'
+  })
+  assert completion == [
+    'ƒ・BeginTx(ctx context.Context, opts *sql.TxOptions) \t\t-> (*sql.Tx, error)',
+    'BeginTx(${1:ctx context.Context}, ${2:opts *sql.TxOptions})'
+  ]
