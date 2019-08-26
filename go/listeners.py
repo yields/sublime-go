@@ -14,15 +14,12 @@ class Listener(sublime_plugin.ViewEventListener):
     self.view = view
 
   def on_pre_save(self):
-    self.run('go_fmt')
+    if not self.view.is_dirty():
+      self.view.run_command('go_fmt')
 
   def on_post_save_async(self):
-    self.run('go_vet')
-    self.run('go_lint')
-
-  def run(self, command):
-    if self.view.is_dirty():
-      self.view.run_command(command)
+    self.view.run_command('go_vet')
+    self.view.run_command('go_lint')
 
   def on_modified_async(self):
     errors.remove_all()
