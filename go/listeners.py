@@ -14,7 +14,7 @@ class Listener(sublime_plugin.ViewEventListener):
     self.view = view
 
   def on_pre_save(self):
-    if not self.view.is_dirty():
+    if self.view.is_dirty():
       self.view.run_command('go_fmt')
 
   def on_post_save_async(self):
