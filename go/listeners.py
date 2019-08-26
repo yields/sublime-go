@@ -26,7 +26,7 @@ class Listener(sublime_plugin.ViewEventListener):
     coverage.remove(self.view)
 
   def on_query_completions(self, prefix, points):
-    if buffer.is_go(self.view):
+    if buffer.can_complete(self.view, points[0]):
       return gocode.complete(self.view, points[0])
 
   @staticmethod

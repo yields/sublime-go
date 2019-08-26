@@ -19,6 +19,25 @@ def text(view):
   reg = sublime.Region(0, view.size())
   return view.substr(reg).encode('UTF-8')
 
+def is_string(view, point):
+  """
+  Is string returns true if point is within a string.
+  """
+  return view.match_selector(point, 'string')
+
+def is_comment(view, point):
+  """
+  Is comment returns true if point is within a comment.
+  """
+  return view.match_selector(point, "comment")
+
+def can_complete(view, point):
+  """
+  Can complete returns true if it's possible complete point.
+  """
+  return is_go(view) and not (
+    is_string(view, point) or is_comment(view, point)
+  )
 
 def in_struct(view):
   """
