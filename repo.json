@@ -10,6 +10,13 @@
     "labels": ["go", "golang", "test", "lint", "auto-complete", "format"],
     "releases": [
       {
+        "version": "0.0.5",
+        "sublime_text": ">=3207",
+        "platforms": ["osx", "windows", "linux"],
+        "url": "https://codeload.github.com/yields/sublime-go/zip/v0.0.5",
+        "date": "2019-08-31 20:00:00"
+      },
+      {
         "version": "0.0.4",
         "sublime_text": ">=3207",
         "platforms": ["osx", "windows", "linux"],
