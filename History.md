@@ -1,4 +1,11 @@
 
+v0.0.5 / 2019-08-31
+===================
+
+  * gocode: complete only when necessary
+  * listeners: check if view is dirty
+  * commands: add settings command
+
 v0.0.4 / 2019-08-25
 ===================
 
