@@ -66,7 +66,7 @@ class Error():
   line, column with a given msg.
   """
   def __init__(self, file, tool, line, col, msg):
-    self.file = file
+    self.file = file.strip()
     self.tool = tool
     self.line = line
     self.col = col
@@ -113,6 +113,10 @@ class Error():
 
     If an invalid line is given, None is returned.
     """
+
+    if line.startswith('vet:'):
+      line = line[len('vet:'):]
+
     if line.find(':') != -1:
       parts = line.split(':', 3)
       file = parts[0]
@@ -131,4 +135,5 @@ class Error():
       row = int(parts[0])
       col = int(parts[1])
       msg = parts[2]
+
       return Error(file, tool, row, col, msg)
