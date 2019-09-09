@@ -45,7 +45,7 @@ class Command():
     )
 
     stdout, stderr = proc.communicate(input=stdin, timeout=timeout)
-    log.debug("$ {} {} ==> {}", self.cmd, ' '.join(self.args), proc.returncode)
+    log.debug("$ {} {} => {}", self.cmd, ' '.join(self.args), proc.returncode)
 
     return Result(
       code=proc.returncode,

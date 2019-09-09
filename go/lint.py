@@ -119,7 +119,7 @@ class Error():
 
     if line.find(':') != -1:
       parts = line.split(':', 3)
-      file = parts[0]
+      file = parts[0].strip()
       parts = [s.strip() for s in parts[1:]]
 
       if line.find('<standard input>') != -1:
