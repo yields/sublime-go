@@ -38,9 +38,9 @@ def locate(view):
     return
 
   if resp["detail"] == "value":
-    open_position(view, resp['value']['objpos'])
-    return
-    return resp["value"]["objpos"]
+    if 'objpos' in resp['value']:
+      open_position(view, resp['value']['objpos'])
+      return
 
   if resp["detail"] == "type":
     if "namepos" in resp["type"]:
