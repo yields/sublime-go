@@ -18,4 +18,7 @@ test:
 clean:
 	@rm -f ${dst}
 	@rm -f Golang.sublime-package
-	@rm -rf .pytest_cache go/__pycache__ go/*.pyc
+	@rm -rf .pytest_cache {go,tests}/__pycache__ go/*.pyc
+
+deps:
+	@pip3 install pytest
