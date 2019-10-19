@@ -35,13 +35,17 @@ def can_complete(view, point):
   """
   Can complete returns true if it's possible complete point.
   """
-  (row, col) = view.rowcol(point)
-  if row == 0:
+  if not is_go(view):
     return False
 
-  return is_go(view) and not (
-    is_string(view, point) or is_comment(view, point)
-  )
+  if is_string(view, point):
+    return False
+
+  if is_comment(view, point):
+    return False
+
+  (row, _) = view.rowcol(point)
+  return row > 0
 
 def in_struct(view):
   """
