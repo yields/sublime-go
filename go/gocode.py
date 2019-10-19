@@ -70,6 +70,8 @@ def parse_func(item):
 
   for i, arg in enumerate(args):
     placeholder = '{name} {type}'.format(**arg)
+    placeholder = placeholder.replace('{', r'\{')
+    placeholder = placeholder.replace('}', r'\}')
     tmpl = '${{{}:{}}}'.format(i + 1, placeholder.strip())
     named_args.append(tmpl)
 

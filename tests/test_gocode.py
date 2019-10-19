@@ -19,6 +19,18 @@ def test_parse_builtin_func():
   })
   assert completion == ['ƒ・real(complex) \t\t-> ()', 'real(${1:complex})']
 
+def test_parse_interface_arg():
+  completion = gocode.parse({
+    'package': 'fmt',
+    'class': 'func',
+    'name': 'Printf',
+    'type': 'func(format string, a ...interface{}) (n int, err error)',
+  })
+  assert completion == [
+    'ƒ・Printf(format string, a ...interface{}) \t\t-> (n int, err error)',
+    r'Printf(${1:format string}, ${2:a ...interface\{\}})'
+  ]
+
 def test_parse_builtin_type():
   completion = gocode.parse({
     'package': '',
@@ -37,7 +49,7 @@ def test_parse_func():
   })
   assert completion == [
     'ƒ・Slice(slice interface{}, less func) \t\t-> ()',
-    'Slice(${1:slice interface{}}, ${2:less func})',
+    r'Slice(${1:slice interface\{\}}, ${2:less func})',
   ]
 
 def test_parse_slice_args():
