@@ -35,6 +35,10 @@ def can_complete(view, point):
   """
   Can complete returns true if it's possible complete point.
   """
+  (row, col) = view.rowcol(point)
+  if row == 0:
+    return False
+
   return is_go(view) and not (
     is_string(view, point) or is_comment(view, point)
   )
