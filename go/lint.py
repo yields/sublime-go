@@ -128,8 +128,20 @@ class Error():
         file = file[2:]
 
       if not parts[1].isdigit():
-        row = int(parts[0])
         msg = parts[1]
+
+        try:
+          row = int(parts[0])
+        except ValueError:
+          # In case of missing position, display an error in the first line
+          row = 0
+          # In most of cases the message will be actually cut in half,
+          # so override msg to display it in a full grace.
+          msg = line
+          # Very probably the file variable has also malformed address
+          # to the edited file
+          file = filename
+
         return Error(file, tool, row, 0, msg)
 
       row = int(parts[0])
