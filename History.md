@@ -1,4 +1,16 @@
 
+v0.0.6 / 2019-11-13
+===================
+
+  * buffer: ocd
+  * buffer: never complete on the 1st line
+  * gocode: escape {} in completion template
+  * make: add deps target
+  * guru: fix invalid type handling
+  * add go1.13
+  * lint: strip filename
+  * lint: go 1.13 fixes
+
 v0.0.5 / 2019-08-31
 ===================
 
