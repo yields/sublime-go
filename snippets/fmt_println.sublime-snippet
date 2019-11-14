@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+fmt.Println("$1")
+]]></content>
+	<tabTrigger>fp</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for fmt.Println()</description>
+</snippet>

@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+panic("$0")
+]]></content>
+	<tabTrigger>pn</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for panic</description>
+</snippet>

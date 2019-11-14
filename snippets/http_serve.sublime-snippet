@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+http.Serve("${1::8080}", ${2:nil})
+]]></content>
+	<tabTrigger>sv</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for http.Serve</description>
+</snippet>

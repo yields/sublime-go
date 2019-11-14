@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+${1:w} http.ResponseWriter, ${2:r} *http.Request
+]]></content>
+	<tabTrigger>wr</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for http Response</description>
+</snippet>

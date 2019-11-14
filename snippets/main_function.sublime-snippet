@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+func main() {
+	$1
+}
+]]></content>
+	<tabTrigger>fmain</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for main function</description>
+</snippet>

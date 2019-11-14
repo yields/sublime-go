@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+type ${1:name} interface {
+	$0
+}
+]]></content>
+	<tabTrigger>tyi</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for a type interface</description>
+</snippet>

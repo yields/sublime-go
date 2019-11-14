@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[
+func Example$1() {
+	$2
+	//Output:
+	$3
+}
+]]></content>
+	<tabTrigger>ef</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for Example function</description>
+</snippet>

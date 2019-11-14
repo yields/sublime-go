@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+interface{}
+]]></content>
+	<tabTrigger>in</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for empty interface</description>
+</snippet>

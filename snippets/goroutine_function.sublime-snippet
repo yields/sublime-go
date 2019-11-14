@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+go ${1:func}($0)
+]]></content>
+	<tabTrigger>gf</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for goroutine declaration</description>
+</snippet>

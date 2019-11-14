@@ -1,0 +1,12 @@
+<snippet>
+	<content><![CDATA[
+package main
+
+func main() {
+	$0
+}
+]]></content>
+	<tabTrigger>pkgm</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for main package & function</description>
+</snippet>

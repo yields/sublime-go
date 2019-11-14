@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+go func($1) {
+	$0
+}($2)
+]]></content>
+	<tabTrigger>go</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for anonymous goroutine declaration</description>
+</snippet>

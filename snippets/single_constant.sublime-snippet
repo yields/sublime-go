@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+const ${1:name} = ${2:value}
+]]></content>
+	<tabTrigger>co</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for a constant</description>
+</snippet>

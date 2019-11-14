@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+func (${1:receiver} ${2:type}) ${3:method}($4) $5 {
+	$0
+}
+]]></content>
+	<tabTrigger>meth</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for method declaration</description>
+</snippet>

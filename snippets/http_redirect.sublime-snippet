@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+http.Redirect(${1:w}, ${2:r}, "${3:/}", ${4:http.StatusFound})
+]]></content>
+	<tabTrigger>rd</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for http.Redirect()</description>
+</snippet>

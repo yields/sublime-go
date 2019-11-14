@@ -1,0 +1,23 @@
+<snippet>
+	<content><![CDATA[
+func Test$1(t *testing.T) {
+	testCases := []struct {
+		desc	string
+		$2
+	}{
+		{
+			desc: "$3",
+			$4
+		},
+	}
+	for _, tC := range testCases {
+		t.Run(tC.desc, func(t *testing.T) {
+			$0
+		})
+	}
+}
+]]></content>
+	<tabTrigger>tdt</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for table driven test</description>
+</snippet>

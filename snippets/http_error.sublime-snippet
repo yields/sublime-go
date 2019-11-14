@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+http.Error(${1:w}, ${2:err}.Error(), ${3:http.StatusInternalServerError})
+]]></content>
+	<tabTrigger>herr</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for http.Error()</description>
+</snippet>

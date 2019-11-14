@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+import (
+	"${1:package}"
+)
+]]></content>
+	<tabTrigger>ims</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for a import block</description>
+</snippet>

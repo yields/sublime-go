@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+type ${1:name} struct {
+	$0
+}
+]]></content>
+	<tabTrigger>tys</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for a struct declaration</description>
+</snippet>

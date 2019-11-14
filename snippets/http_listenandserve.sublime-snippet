@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+http.ListenAndServe("${1::8080}", ${2:nil})
+]]></content>
+	<tabTrigger>las</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for http.ListenAndServe</description>
+</snippet>

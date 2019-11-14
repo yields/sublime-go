@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+chan ${1:type}
+]]></content>
+	<tabTrigger>ch</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for a channel</description>
+</snippet>

@@ -1,0 +1,8 @@
+<snippet>
+	<content><![CDATA[
+defer ${1:func}($0)
+]]></content>
+	<tabTrigger>df</tabTrigger>
+	<scope>source.go</scope>
+	<description>Snippet for defer statement</description>
+</snippet>
