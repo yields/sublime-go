@@ -34,6 +34,6 @@ def run(view, edit):
   res = cmd.run()
 
   if res.code != 0:
-    errs = lint.parse(res.stderr, file, "vet")
+    errs = lint.parse(res.stderr, (root, cwd, file), "vet")
     log.debug('vet: {}', errs)
     errors.update("vet", view, errs)
