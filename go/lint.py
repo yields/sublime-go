@@ -4,6 +4,7 @@ from . import buffer
 from . import errors
 from . import exec
 from . import log
+import os
 import os.path as path
 import string
 import sublime
@@ -107,12 +108,13 @@ class Error():
     return self.__str__()
 
   @staticmethod
-  def parse(line, filename, tool):
+  def parse(line, filepath, tool):
     """
     Parse the given line and return an error.
 
     If an invalid line is given, None is returned.
     """
+    (root, cwd, filename) = filepath
 
     if line.startswith('vet:'):
       line = line[len('vet:'):]
@@ -124,8 +126,11 @@ class Error():
 
       if line.find('<standard input>') != -1:
         file = filename
-      elif file.startswith('./'):
-        file = file[2:]
+      elif file.startswith('.' + path.sep):
+        if path.join(cwd, file[2:]) == path.join(root, filename):
+          file = filename
+        else:
+          file = file[2:]
 
       if not parts[1].isdigit():
         row = int(parts[0])

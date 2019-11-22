@@ -21,15 +21,19 @@ def run(view, edit):
   file = buffer.filename(view)
   pkg = buffer.package(view)
 
-  # When sublime is opened with `$ subl main.go`
   if len(view.window().folders()) == 0:
-    pkg = file
+    # When sublime is opened with `$ subl main.go`
+    target = file
+    cwd = root
+  else:
+    target = './...'
+    cwd = pkg
 
-  args = ["vet"] + ["--" + a for a in conf.vet_analyzers()] + [pkg]
-  cmd = exec.Command("go", args=args, cwd=root)
+  args = ["vet"] + ["--" + a for a in conf.vet_analyzers()] + [target]
+  cmd = exec.Command("go", args=args, cwd=cwd)
   res = cmd.run()
 
   if res.code != 0:
-    errs = lint.parse(res.stderr, file, "vet")
+    errs = lint.parse(res.stderr, (root, cwd, file), "vet")
     log.debug('vet: {}', errs)
     errors.update("vet", view, errs)
