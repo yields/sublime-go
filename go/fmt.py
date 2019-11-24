@@ -16,6 +16,7 @@ def run(view, edit):
   pos = view.viewport_position()
   src = buffer.text(view)
   args = ["-e", "-srcdir", path.dirname(file)]
+  root = buffer.root(view)
   pkg = buffer.package(view)
   cmd = exec.Command("goimports", args=args, stdin=src, cwd=pkg)
   res = cmd.run()
@@ -24,5 +25,5 @@ def run(view, edit):
     buffer.replace(view, edit, res.stdout)
     return
 
-  errs = lint.parse(res.stderr, file, "fmt")
+  errs = lint.parse(res.stderr, (root, pkg, file), "fmt")
   errors.update("fmt", view, errs)

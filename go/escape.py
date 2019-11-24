@@ -14,13 +14,14 @@ def run(view, edit):
   errors.remove("escape", view)
 
   args = ['build', '--gcflags=-m', '.']
+  root = buffer.root(view)
   pkg = buffer.package(view)
   cmd = exec.Command("go", args=args, cwd=pkg)
   res = cmd.run()
 
   if res.code == 0:
     file = buffer.filename(view)
-    errs = lint.parse(res.stderr, file, "escape")
+    errs = lint.parse(res.stderr, (root, pkg, file), "escape")
     errs = filter(errs, file, "escapes to heap")
     errors.update("escape", view, errs)
 
