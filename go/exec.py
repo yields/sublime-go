@@ -1,6 +1,6 @@
 
-from subprocess import Popen
-from subprocess import PIPE
+import platform
+from subprocess import Popen, PIPE, STARTUPINFO, STARTF_USESHOWWINDOW
 from os import (environ, path)
 from . import decorators
 from . import buffer
@@ -35,6 +35,11 @@ class Command():
     args = [self.cmd] + self.args
     env = goenv(self.cwd)
 
+    startupinfo = None
+    if platform.system() == "Windows":
+      startupinfo = STARTUPINFO()
+      startupinfo.dwFlags |= STARTF_USESHOWWINDOW
+
     proc = Popen(
       args,
       stdin=PIPE,
@@ -42,6 +47,7 @@ class Command():
       stderr=PIPE,
       cwd=self.cwd,
       env=env,
+      startupinfo=startupinfo,
     )
 
     stdout, stderr = proc.communicate(input=stdin, timeout=timeout)
