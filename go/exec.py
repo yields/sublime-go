@@ -1,6 +1,6 @@
 
 import platform
-from subprocess import Popen, PIPE, STARTUPINFO, STARTF_USESHOWWINDOW
+from subprocess import Popen, PIPE
 from os import (environ, path)
 from . import decorators
 from . import buffer
@@ -37,6 +37,7 @@ class Command():
 
     startupinfo = None
     if platform.system() == "Windows":
+      from subprocess import STARTUPINFO, STARTF_USESHOWWINDOW
       startupinfo = STARTUPINFO()
       startupinfo.dwFlags |= STARTF_USESHOWWINDOW
 
