@@ -9,7 +9,7 @@ jobs:
     strategy:
       max-parallel: 4
       matrix:
-        python-version: [3.5.7, 3.6.9]
+        python-version: [3.5.9, 3.6.10]
         go-version: [1.12, 1.13]
 
     steps:
