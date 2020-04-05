@@ -1,5 +1,5 @@
 
-v0.1.0 / 2020-04-05
+v0.1.1 / 2020-04-05
 ===================
 
   * exec: use root when picking up go env
