@@ -1,4 +1,16 @@
 {
+  // Root is the path to Go's bins.
+  //
+  // Typically Go's root is in your $PATH and if you're launching
+  // ST from the CLI it will pick up your $PATH and go(1) will be
+  // available for the plugin automatically.
+  //
+  // If you're launching ST in some other way, it might not pick
+  // up your login's shell $PATH and so go(1) will not be available.
+  //
+  // Example: "/usr/local/go/bin"
+  "root": null,
+
   // Vet specific configuration.
   //
   // Allows you to configure vet command line arguments.
