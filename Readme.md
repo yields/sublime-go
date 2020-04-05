@@ -22,13 +22,7 @@
 
 ## Installation
 
-  1. Add the repository to package control:
-
-  ```text
-  https://raw.githubusercontent.com/yields/sublime-go/master/repo.json
-  ```
-
-  2. Search and install `Golang` via package-control.
+  Search and install `Golang` via package-control.
 
 ## Dependencies
 
