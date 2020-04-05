@@ -4,6 +4,7 @@ from subprocess import Popen, PIPE
 from os import (environ, path)
 from . import decorators
 from . import buffer
+from . import conf
 from . import log
 
 if platform.system() == "Windows":
@@ -78,7 +79,13 @@ def goenv(cwd, timeout=2):
   goenv returns the go environment based on cwd.
   """
   log.debug("exec: getting go env")
-  proc = Popen(["go", "env"], stdout=PIPE, cwd=cwd)
+  root = conf.root()
+  bin = "go"
+
+  if root != None:
+    bin = path.join(root, bin)
+
+  proc = Popen([bin, "env"], stdout=PIPE, cwd=cwd)
   out, _ = proc.communicate(timeout=timeout)
   out = out.decode('UTF-8')
   env = {}
