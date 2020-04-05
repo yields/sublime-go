@@ -1,0 +1,3 @@
+
+  - Add `Go: settings` command and menu.
+  - Add `root` setting to set the path to go(1) (example `/usr/local/go/bin`).
