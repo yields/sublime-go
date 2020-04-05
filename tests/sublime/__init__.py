@@ -6,3 +6,6 @@ class Region():
 
 def PhantomSet(set):
   pass
+
+def load_settings(name):
+  return {}
