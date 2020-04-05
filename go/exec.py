@@ -1,10 +1,13 @@
 
 import platform
-from subprocess import Popen, PIPE, STARTUPINFO, STARTF_USESHOWWINDOW
+from subprocess import Popen, PIPE
 from os import (environ, path)
 from . import decorators
 from . import buffer
 from . import log
+
+if platform.system() == "Windows":
+  from subprocess import STARTUPINFO, STARTF_USESHOWWINDOW
 
 class Command():
   """
