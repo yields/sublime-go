@@ -12,7 +12,7 @@
 
 <br><br>
 
-### Features
+## Features
 
   - Format and import on pre-save.
   - Vet and Lint on post-save.
@@ -24,7 +24,8 @@
   - Coverage.
 
 
-### Installation
+## Installation
+
   Search and install `Golang` via package-control.
 
   Note that you'll have to install the following dependencies
@@ -36,4 +37,11 @@
   - [`gocode(1)`](https://github.com/visualfc/gocode)
   - [`guru(1)`](https://golang.org/x/tools/cmd/guru)
 
+## Contributing
 
+  Any contribution, be it bug report or code would be awesome, if you want
+  to add a feature or make a bigger change make sure to open an issue to discuss it.
+
+## License
+
+  MIT
