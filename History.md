@@ -1,4 +1,16 @@
 
+v0.1.0 / 2020-04-05
+===================
+
+  * exec: use root when picking up go env
+  * settings: add optional root setting
+  * commands: adjust settings default value
+  * settings: add sublime menu to configure the plugin
+  * exec: import startupinfo on windows only (@piotrkubisa)
+  * exec: Do not show Windows cmd.exe on command execution (@piotrkubisa)
+  * vet,lint: Properly discover linted file by go-vet (@piotrkubisa)
+  * vet: Run on a package, not on a directoryc (@piotrkubisa)
+
 v0.0.6 / 2019-11-13
 ===================
 
