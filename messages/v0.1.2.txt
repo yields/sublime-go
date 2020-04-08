@@ -1,0 +1,2 @@
+
+  - settings: fix the path to match package control structure.
