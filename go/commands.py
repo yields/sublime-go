@@ -17,7 +17,7 @@ from . import vet
 class GoSettingsCommand(sublime_plugin.TextCommand):
   def run(self, edit):
     sublime.run_command("edit_settings", {
-      'base_file': "${packages}/Golang/Golang.sublime-settings",
+      'base_file': "${packages}/Golang/conf/Golang.sublime-settings",
       'default': "// Any settings in this file overrides the default ones\n{\n\t$0\n}\n",
     })
 
