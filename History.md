@@ -1,4 +1,10 @@
 
+v0.1.2 / 2020-04-08
+===================
+
+  * commands: adjust to match the realpath of default settings
+  * scripts/package: match PC zip structure
+
 v0.1.1 / 2020-04-05
 ===================
 
