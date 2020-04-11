@@ -39,6 +39,8 @@ def complete(view, point):
   for item in enumerate(res[1]):
     all.append(parse(item[1]))
 
+  log.debug("items: {}", all)
+
   return (all, sublime.INHIBIT_WORD_COMPLETIONS)
 
 def parse(item):
@@ -117,7 +119,7 @@ def parse_args(buf, depth=0):
     if arg == None:
       arg = {'name': '', 'type': ''}
 
-    (v,) = re.findall(r'^ *([!\.\w{}\[\]\/\* ]+)(?:[,)]|func\()', buf)
+    (v,) = re.findall(r'^ *([!\.\w{}\[\]\/\*\>\< ]+)(?:[,)]|func\()', buf)
     buf = buf[len(v):]
 
     parts = v.split(' ')
