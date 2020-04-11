@@ -81,7 +81,7 @@ def parse_v4(item):
     annotation=annotation,
     completion=completion,
     completion_format=format,
-    kind=(kind, type)
+    kind=(kind, type, '')
   )
 
 def parse_func(item):
