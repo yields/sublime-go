@@ -37,7 +37,10 @@ def complete(view, point):
     return
 
   for item in enumerate(res[1]):
-    all.append(parse(item[1]))
+    if sublime.version() > '4070':
+      all.append(parse_v4(item[1]))
+    else:
+      all.append(parse(item[1]))
 
   return (all, sublime.INHIBIT_WORD_COMPLETIONS)
 
@@ -55,6 +58,31 @@ def parse(item):
     subj = func["snip"]
 
   return [hint, subj]
+
+def parse_v4(item):
+  """
+  Parses a gocode item and returns a sublime v4 completion.
+  """
+  type = item['class'][0].capitalize()
+  trigger = item['name']
+  kind = kindof(item['class'])
+  completion = item['name']
+  annotation = item['type']
+  format = sublime.COMPLETION_FORMAT_TEXT
+
+  if item['class'] == 'func':
+    func = parse_func(item)
+    completion = func['snip']
+    annotation = func['rets']
+    format = sublime.COMPLETION_FORMAT_SNIPPET
+
+  return sublime.CompletionItem(
+    trigger=trigger,
+    annotation=annotation,
+    completion=completion,
+    completion_format=format,
+    kind=(kind, type)
+  )
 
 def parse_func(item):
   name = item.get('name')
@@ -117,7 +145,7 @@ def parse_args(buf, depth=0):
     if arg == None:
       arg = {'name': '', 'type': ''}
 
-    (v,) = re.findall(r'^ *([!\.\w{}\[\]\/\* ]+)(?:[,)]|func\()', buf)
+    (v,) = re.findall(r'^ *([!\.\w{}\[\]\/\*\>\< ]+)(?:[,)]|func\()', buf)
     buf = buf[len(v):]
 
     parts = v.split(' ')
@@ -156,3 +184,12 @@ def cleanup(v):
     parts = v.split('!')
     return parts[0] + parts.pop()
   return v
+
+def kindof(c):
+  if c == 'type':
+    return sublime.KIND_ID_TYPE
+  if c == 'func':
+    return sublime.KIND_ID_FUNCTION
+  if c == 'var':
+    return sublime.KIND_ID_VARIABLE
+  return sublime.KIND_ID_AMBIGUOUS
