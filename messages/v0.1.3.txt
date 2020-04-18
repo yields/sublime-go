@@ -1,0 +1,4 @@
+
+  - errors: show maximum of 1 error per view/line
+  - gocode: add sublime v4 support
+  - gocode: fix an issue with completion item exception
