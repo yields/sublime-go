@@ -15,10 +15,16 @@ watch:
 test:
 	@pytest ./tests
 
+coverage:
+	@coverage run --include="go/*" -m pytest ./tests
+	@coverage html
+	@open htmlcov/index.html
+
 clean:
 	@rm -f ${dst}
 	@rm -f Golang.sublime-package
 	@rm -rf .pytest_cache {go,tests}/__pycache__ go/*.pyc
+	@rm -rf htmlcov .coverage
 
 deps:
 	@pip3 install pytest

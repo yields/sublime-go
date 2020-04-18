@@ -1,7 +1,9 @@
-
-.pytest_cache/
-__pycache__/
+/.pytest_cache/
+__pycache__
 *.pyc
-*.sublime-package
-*.mod
-*.sum
+/*.sublime-package
+/*.mod
+/*.sum
+/htmlcov
+/.coverage
+
