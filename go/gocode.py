@@ -33,9 +33,6 @@ def complete(view, point):
   if len(res) == 0:
     return
 
-  if res == None:
-    return
-
   for item in enumerate(res[1]):
     if sublime.version() > '4070':
       all.append(parse_v4(item[1]))
