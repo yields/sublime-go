@@ -5,26 +5,20 @@ from . import buffer
 state = {}
 
 def update(key, view, errors):
-  """
-  Update updates the set of shown errors.
-
-  The method shos a given list of errors on the given
-  view, keyed by `key`, each tool uses a different key.
-  """
-  set = PhantomSet(view, key)
+  phantoms = PhantomSet(view, key)
+  dedupe = {}
   all = []
 
   for err in errors:
     if buffer.filename(view) == err.file:
+      if err.line not in dedupe:
         all.append(err.to_phantom(view))
+        dedupe[err.line] = True
 
-  set.update(all)
-  state[id(key, view.id())] = set
+  phantoms.update(all)
+  state[id(key, view.id())] = phantoms
 
 def remove(key, view):
-  """
-  Remove removes all errors from view of key.
-  """
   key = id(key, view.id())
   if key in state:
     state[key].update([])

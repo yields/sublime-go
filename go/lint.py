@@ -96,17 +96,6 @@ class Error():
       'msg': msg,
     }
 
-  def __str__(self):
-    return ':'.join([
-      self.tool,
-      self.file,
-      str(self.line),
-      str(self.col),
-    ]) + " " + self.msg
-
-  def __repr__(self):
-    return self.__str__()
-
   @staticmethod
   def parse(line, filepath, tool):
     """
