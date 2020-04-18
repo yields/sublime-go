@@ -1,4 +1,11 @@
 
+v0.1.3 / 2020-04-18
+===================
+
+  * errors: show maximum of 1 error per view/line
+  * gocode: add sublime v4 support
+  * gocode: fix an issue with completion item exception
+
 v0.1.2 / 2020-04-08
 ===================
 
