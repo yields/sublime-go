@@ -13,6 +13,7 @@ from . import lint
 from . import log
 from . import fmt
 from . import vet
+from . import staticcheck
 
 class GoSettingsCommand(sublime_plugin.TextCommand):
   def run(self, edit):
@@ -44,6 +45,26 @@ class GoVetCommand(sublime_plugin.TextCommand):
   def unlock(self):
     self.locked = False
     spinner.remove(self.view, 'vet')
+
+  def is_enabled(self):
+    return buffer.is_go(self.view)
+
+class GoStaticCheckCommand(sublime_plugin.TextCommand):
+  locked = False
+
+  def run(self, edit):
+    if not self.locked:
+      self.lock()
+      p = staticcheck.run(self.view, edit)
+      p.then(lambda _: self.unlock())
+
+  def lock(self):
+    self.locked = True
+    spinner.add(self.view, 'staticcheck')
+
+  def unlock(self):
+    self.locked = False
+    spinner.remove(self.view, 'staticcheck')
 
   def is_enabled(self):
     return buffer.is_go(self.view)

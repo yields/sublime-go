@@ -42,5 +42,9 @@
   {
     "caption": "Go: clear tags",
     "command": "go_clear_tags"
+  },
+  {
+    "caption": "Go: static check",
+    "command": "go_static_check"
   }
 ]
