@@ -20,6 +20,7 @@ class Listener(sublime_plugin.ViewEventListener):
   def on_post_save_async(self):
     self.view.run_command('go_vet')
     self.view.run_command('go_lint')
+    self.view.run_command('go_static_check')
 
   def on_modified_async(self):
     errors.remove_all()
