@@ -27,10 +27,10 @@ class Listener(sublime_plugin.ViewEventListener):
     coverage.remove(self.view)
 
   def on_query_completions(self, prefix, points):
-    log.debug('complete prefix={} points={}', prefix, points)
-
     if not buffer.can_complete(self.view, points[0]):
       return
+
+    log.debug('complete prefix={} points={}', prefix, points)
 
     if sublime.version() < '4070':
       return gocode.complete(self.view, points[0])
