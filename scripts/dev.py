@@ -19,7 +19,8 @@ submodules = [
 	'spinner',
 	'tags',
 	'test',
-	'vet'
+	'vet',
+	'staticcheck'
 ]
 
 def plugin_loaded():
