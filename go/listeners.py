@@ -26,9 +26,35 @@ class Listener(sublime_plugin.ViewEventListener):
     coverage.remove(self.view)
 
   def on_query_completions(self, prefix, points):
-    if buffer.can_complete(self.view, points[0]):
+    log.debug('complete prefix={} points={}', prefix, points)
+
+    if not buffer.can_complete(self.view, points[0]):
+      return
+
+    if sublime.version() < '4070':
       return gocode.complete(self.view, points[0])
+
+    req = Request(self.view, points)
+    req.send_async()
+    return req.completions
 
   @staticmethod
   def applies_to_primary_view_only():
     return True
+
+class Request():
+  def __init__(self, view, points):
+    self.view = view
+    self.points = points
+    self.completions = sublime.CompletionList()
+
+  def send_async(self):
+    sublime.set_timeout_async(self.send, 0)
+
+  def send(self):
+    all = gocode.complete(self.view, self.points[0])
+
+    if all is None:
+      return
+
+    self.completions.set_completions(all[0], all[1])

@@ -27,17 +27,15 @@ def complete(view, point):
   res = json.loads(res.stdout)
   all = []
 
-  if not res:
-    return
-
-  if len(res) == 0:
+  if not res or len(res) == 0:
+    log.debug('gocode: no completions')
     return
 
   for item in enumerate(res[1]):
-    if sublime.version() > '4070':
-      all.append(parse_v4(item[1]))
-    else:
+    if sublime.version() < '4070':
       all.append(parse(item[1]))
+    else:
+      all.append(parse_v4(item[1]))
 
   return (all, sublime.INHIBIT_WORD_COMPLETIONS)
 
