@@ -16,5 +16,27 @@
   // Allows you to configure vet command line arguments.
   "vet": {
   	"analyzers": []
+  },
+
+  // Staticcheck(1) specific configuration.
+  //
+  // You have to have staticcheck(1) installed:
+  //
+  //   $ go get honnef.co/go/tools/...
+  //
+  "staticcheck": {
+    // An array of check codes to run on post-save.
+    //
+    // When the array is empty, no static checks are run at all.
+    // You can see the full list of available checks at:
+    //
+    // https://staticcheck.io/docs/checks
+    //
+    // Some handy checks to enable:
+    //
+    //   - U1000   Unused code.
+    //   - SA1029  Inappropriate key in call to context.WithValue
+    //
+    "checks": []
   }
 }

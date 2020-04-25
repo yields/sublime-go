@@ -7,6 +7,11 @@ def vet_analyzers():
   vet = settings.get('vet', {})
   return vet.get('analyzers', [])
 
+def static_checks():
+  settings = load_settings('Golang.sublime-settings')
+  sc = settings.get('staticcheck', {})
+  return sc.get('checks', [])
+
 def root():
   settings = load_settings("Golang.sublime-settings")
   return settings.get("root", "")
