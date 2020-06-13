@@ -6,14 +6,11 @@ state = {}
 
 def update(key, view, errors):
   phantoms = PhantomSet(view, key)
-  dedupe = {}
   all = []
 
   for err in errors:
     if buffer.filename(view) == err.file:
-      if err.line not in dedupe:
-        all.append(err.to_phantom(view))
-        dedupe[err.line] = True
+      all.append(err.to_phantom(view))
 
   phantoms.update(all)
   state[id(key, view.id())] = phantoms

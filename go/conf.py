@@ -16,3 +16,7 @@ def root():
   settings = load_settings("Golang.sublime-settings")
   return settings.get("root", "")
 
+def vet_on_post_save():
+  settings = load_settings('Golang.sublime-settings')
+  vet = settings.get('vet', {})
+  return vet.get('run_on_post_save', True)

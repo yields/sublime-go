@@ -3,6 +3,7 @@ from . import coverage
 from . import errors
 from . import buffer
 from . import gocode
+from . import conf
 from . import guru
 from . import log
 import sublime_plugin
@@ -18,7 +19,9 @@ class Listener(sublime_plugin.ViewEventListener):
       self.view.run_command('go_fmt')
 
   def on_post_save_async(self):
-    self.view.run_command('go_vet')
+    if conf.vet_on_post_save():
+      self.view.run_command('go_vet')
+
     self.view.run_command('go_lint')
     self.view.run_command('go_static_check')
 

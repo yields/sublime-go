@@ -15,6 +15,20 @@
   //
   // Allows you to configure vet command line arguments.
   "vet": {
+    // If true, vet will run on post save.
+    //
+    // When you disable post save run, you'll have to run
+    // it manaully via the command pallette, or add a keybinding.
+    "run_on_post_save": true,
+
+    // The analyzers to run.
+    //
+    // If empty, all default analyzers are used.
+    //
+    // To see a list of registered analyzers run:
+    //
+    //     $ go tool vet help
+    //
   	"analyzers": []
   },
 
@@ -24,6 +38,8 @@
   //
   //   $ go get honnef.co/go/tools/...
   //
+  // Note that `staticcheck` addon is still in development
+  // remove all checks if it is causing problems.
   "staticcheck": {
     // An array of check codes to run on post-save.
     //
