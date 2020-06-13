@@ -1,4 +1,19 @@
 
+v0.1.4 / 2020-06-13
+===================
+
+  * listeners: run vet only if vet.run_on_post_save is true
+  * errors: remove dedupe for now
+  * conf: add vet.run_on_post_save flag
+  * staticcheck: fix typo
+  * listeners: remove annoying log.debug call
+  * listeners: run static_check on post-save
+  * add staticcheck command
+  * dev: reload staticcheck
+  * conf: add static_check
+  * listeners: async completion for STv4
+  * gocode: >=4070 as v4
+
 v0.1.3 / 2020-04-18
 ===================
 
