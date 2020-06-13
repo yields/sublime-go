@@ -1,0 +1,14 @@
+
+- addons: a new experimental plugin has been added `staticcheck`
+
+The addong is disabled by default (no checks configured), see the settings to enable
+it. It runs on `post_save`, if you encounter any issues with staticcheck please
+report to https://github.com/yields/sublime-go/issues.
+
+- config: a new setting `vet.run_on_post_save` has been added.
+
+The default is `true` which causes vet to run on post_save, you can change
+it to `false`.
+
+To run vet again, you can either use the command pallet `go: vet` or add your
+own keybinding to run it.
