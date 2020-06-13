@@ -16,7 +16,7 @@ def run(view, edit):
   """
   Run runs staticcheck(1) on the given view.
   """
-  errors.remove("vet", view)
+  errors.remove("staticcheck", view)
   root = buffer.root(view)
   file = buffer.filename(view)
   pkg = buffer.package(view)
