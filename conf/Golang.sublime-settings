@@ -29,6 +29,9 @@
     //
     //     $ go tool vet help
     //
+    // You can also disable specific analyzers, for example:
+    // ["composites=false"], disables composite analysis but
+    // allows all other analyzers.
   	"analyzers": []
   },
 
