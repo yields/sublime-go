@@ -1,5 +1,5 @@
 
-dst= "$(HOME)/Library/Application Support/Sublime Text 3/Installed Packages/Golang.sublime-package"
+dst= "$(HOME)/Library/Application Support/Sublime Text/Installed Packages/Golang.sublime-package"
 
 install: clean
 	@sleep .1
