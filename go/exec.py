@@ -80,7 +80,7 @@ def goenv(cwd, timeout=2):
   """
   log.debug("exec: getting go env")
   root = conf.root()
-  bin = "go"
+  bin = conf.bin()
 
   if root != None:
     bin = path.join(root, bin)

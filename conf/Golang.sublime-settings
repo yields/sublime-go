@@ -1,4 +1,10 @@
 {
+  // Bin is the binary to use for Go.
+  //
+  // It is useful in cases where you want to work with
+  // a different version of go.
+  "bin": "go",
+
   // Root is the path to Go's bins.
   //
   // Typically Go's root is in your $PATH and if you're launching

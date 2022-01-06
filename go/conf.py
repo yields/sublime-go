@@ -12,6 +12,10 @@ def static_checks():
   sc = settings.get('staticcheck', {})
   return sc.get('checks', [])
 
+def bin():
+  settings = load_settings("Golang.sublime-settings")
+  return settings.get("bin", "go")
+
 def root():
   settings = load_settings("Golang.sublime-settings")
   return settings.get("root", "")
